@@ -18,7 +18,7 @@ describe('cipherjson', () => {
     });
 
 
-    it('Cipherjson', (done) => {
+    it('Write and read.', (done) => {
         let filename = `${__dirname}/../tmp/testing.secret.json`;
         let cipherjson = new Cipherjson('hoge');
         cipherjson.write(filename, {
@@ -33,5 +33,15 @@ describe('cipherjson', () => {
             });
         });
     });
+
+    it('Read not ciphered', (done) => {
+        let filename = require.resolve('../doc/mocks/mock-data.json')
+        let cipherjson = new Cipherjson('hoge');
+        cipherjson.read(filename, (err, data) => {
+            assert.ifError(err);
+            assert.deepEqual(data, {foo: 'bar'});
+            done();
+        });
+    })
 });
 
