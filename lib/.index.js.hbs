@@ -1,0 +1,14 @@
+/**
+ * {{pkg.description}}
+ * @module {{pkg.name}}
+ */
+
+"use strict";
+
+const Cipherjson = require('./cipherjson'),
+    create = require('./create');
+
+let lib = create.bind(this);
+lib.create = create;
+lib.Cipherjson = Cipherjson;
+module.exports = lib;
