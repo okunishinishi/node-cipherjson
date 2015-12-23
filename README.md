@@ -72,7 +72,6 @@ Usage
 
 const cipherjson = require('cipherjson');
 
-
 let cipher = cipherjson('your-password');
 
 cipher.write('secret.json', {
@@ -92,25 +91,12 @@ cipher.write('secret.json', {
 
 And secret.json would be looks like:
 
-"use strict";
-
-const cipherjson = require('cipherjson');
-
-
-let cipher = cipherjson('your-password');
-
-cipher.write('secret.json', {
-    DATABASE_PASSWORD: 'asekr324',
-    EXTERNAL_API_SECRET: 'puaALiJ'
-}, (err) => {
-    /*...*/
-        
-    cipher.read('secret.json', (err) => {
-        /*...*/
-    });
-});
-
-
+```json
+{
+    "DATABASE_PASSWORD": "enciphered:fd871bb714f57481f229dd795a94ec34",
+    "EXTERNAL_API_SECRET": "enciphered:asf09a;sdfj09asdf98u89jlj98u98"
+}
+```
 
 <!-- Section from "doc/guides/02.Usage.md.hbs" End -->
 

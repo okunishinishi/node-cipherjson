@@ -2,7 +2,6 @@
 
 const cipherjson = require('cipherjson');
 
-
 let cipher = cipherjson('your-password');
 
 cipher.write('secret.json', {

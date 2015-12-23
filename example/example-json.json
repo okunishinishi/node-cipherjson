@@ -1,18 +1,4 @@
-"use strict";
-
-const cipherjson = require('cipherjson');
-
-
-let cipher = cipherjson('your-password');
-
-cipher.write('secret.json', {
-    DATABASE_PASSWORD: 'asekr324',
-    EXTERNAL_API_SECRET: 'puaALiJ'
-}, (err) => {
-    /*...*/
-        
-    cipher.read('secret.json', (err) => {
-        /*...*/
-    });
-});
-
+{
+    "DATABASE_PASSWORD": "enciphered:fd871bb714f57481f229dd795a94ec34",
+    "EXTERNAL_API_SECRET": "enciphered:asf09a;sdfj09asdf98u89jlj98u98"
+}
