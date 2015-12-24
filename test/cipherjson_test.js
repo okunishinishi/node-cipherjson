@@ -28,14 +28,26 @@ describe('cipherjson', () => {
             cipherjson.read(filename, (err, data) => {
                 assert.ifError(err);
                 assert.deepEqual(data, {foo: 'bar'});
-                console.log(data);
                 done();
             });
         });
     });
 
+    it('Write and read sync.', (done) => {
+        let filename = `${__dirname}/../tmp/testing.secret.json`;
+        let cipherjson = new Cipherjson('hoge');
+        cipherjson.write(filename, {
+            foo: 'bar'
+        }, (err) => {
+            assert.ifError(err);
+            let data = cipherjson.readSync(filename);
+            assert.deepEqual(data, {foo: 'bar'});
+            done();
+        });
+    });
+
     it('Read not ciphered', (done) => {
-        let filename = require.resolve('../doc/mocks/mock-data.json')
+        let filename = require.resolve('../doc/mocks/mock-data.json');
         let cipherjson = new Cipherjson('hoge');
         cipherjson.read(filename, (err, data) => {
             assert.ifError(err);
