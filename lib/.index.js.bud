@@ -4,15 +4,16 @@
 
 "use strict";
 
-const apeTmpl = require('ape-tmpl'),
-    pkg = require('../package.json');
+const pkg = require('../package.json');
 
-module.exports = apeTmpl.indexJsBud({
-    desc:pkg.description,
-    module:pkg.name,
-    dirname:__dirname
-});
+module.exports = {
+    mode: '444',
+    force: true,
+    data: {
+        pkg: pkg
+    }
+};
 
-if(!module.parent){
+if (!module.parent) {
     require('coz').render(__filename);
 }
