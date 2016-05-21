@@ -2,18 +2,18 @@
  * Bud file for index.js
  */
 
-"use strict";
+'use strict'
 
-const pkg = require('../package.json');
+const pkg = require('../package.json')
 
 module.exports = {
-    mode: '444',
-    force: true,
-    data: {
-        pkg: pkg
-    }
-};
+  mode: '444',
+  force: true,
+  data: {
+    pkg: pkg
+  }
+}
 
 if (!module.parent) {
-    require('coz').render(__filename);
+  require('coz').render(__filename)
 }

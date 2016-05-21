@@ -2,24 +2,21 @@
  * Test case for textCrypto.
  * Runs with mocha.
  */
-"use strict";
+'use strict'
 
-const textCrypto = require('../lib/crypting/text_crypto.js'),
-    assert = require('assert');
+const textCrypto = require('../lib/crypting/text_crypto.js')
+const co = require('co')
+const assert = require('assert')
 
 describe('text-crypto', () => {
+  before(() => co(function * () {
+  }))
 
-    before((done) => {
-        done();
-    });
+  after(() => co(function * () {
+  }))
 
-    after((done) => {
-        done();
-    });
+  it('Text crypto', () => co(function * () {
+  }))
+})
 
-
-    it('Text crypto', (done) => {
-        done();
-    });
-});
-
+/* global describe, before, after, it */

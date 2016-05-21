@@ -2,24 +2,37 @@
  * Test case for objCrypto.
  * Runs with mocha.
  */
-"use strict";
+'use strict'
 
-const objCrypto = require('../lib/crypting/obj_crypto.js'),
-    assert = require('assert');
+const objCrypto = require('../lib/crypting/obj_crypto.js')
+const co = require('co')
+const assert = require('assert')
 
 describe('obj-crypto', () => {
+  before(() => co(function * () {
+  }))
 
-    before((done) => {
-        done();
-    });
+  after(() => co(function * () {
+  }))
 
-    after((done) => {
-        done();
-    });
+  it('Obj crypto', () => co(function * () {
+    let chiphered = objCrypto.cipherObject(
+      'aes-256-cbc',
+      'hogehoge',
+      {
+        foo: 'bar'
+      }
+    )
+    let deciphered = objCrypto.decipherObject(
+      'aes-256-cbc',
+      'hogehoge',
+      {
+        foo: 'bar'
+      }
+    )
+    assert.ok(chiphered.foo)
+    assert.deepEqual(deciphered, { foo: 'bar' })
+  }))
+})
 
-
-    it('Obj crypto', (done) => {
-        done();
-    });
-});
-
+/* global describe, before, after, it */

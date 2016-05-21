@@ -3,12 +3,16 @@
  * @module {{pkg.name}}
  */
 
-"use strict";
+'use strict'
 
-const Cipherjson = require('./cipherjson'),
-    create = require('./create');
+const Cipherjson = require('./cipherjson')
+const create = require('./create')
 
-let lib = create.bind(this);
-lib.create = create;
-lib.Cipherjson = Cipherjson;
-module.exports = lib;
+let lib = create.bind(this)
+
+Object.assign(lib, {
+  create,
+  Cipherjson
+})
+
+module.exports = lib
