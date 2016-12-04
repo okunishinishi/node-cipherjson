@@ -1,6 +1,6 @@
 {
   "name": "cipherjson",
-  "version": "2.0.5",
+  "version": "2.1.1",
   "description": "Store json in encrypted format.",
   "main": "lib",
   "scripts": {
