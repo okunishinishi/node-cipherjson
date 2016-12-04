@@ -21,20 +21,21 @@
   },
   "homepage": "https://github.com/okunishinishi/node-cipherjson#readme",
   "dependencies": {
-    "argx": "^2.0.2",
-    "async": "^1.5.2",
-    "objnest": "^2.0.5",
-    "writeout": "^2.0.4"
+    "abind": "^1.0.0",
+    "argx": "^3.0.2",
+    "async": "^2.1.4",
+    "objnest": "^3.0.9",
+    "writeout": "^2.1.0"
   },
   "devDependencies": {
-    "ape-covering": "^3.0.3",
-    "ape-releasing": "^3.1.1",
-    "ape-reporting": "^3.0.1",
-    "ape-tasking": "^4.0.0",
-    "ape-testing": "^4.0.0",
-    "ape-tmpl": "^5.0.1",
-    "ape-updating": "^3.0.2",
-    "coz": "^6.0.2",
+    "ape-covering": "^3.0.4",
+    "ape-releasing": "^4.0.4",
+    "ape-reporting": "^3.0.2",
+    "ape-tasking": "^4.0.9",
+    "ape-testing": "^4.0.2",
+    "ape-tmpl": "^5.0.20",
+    "ape-updating": "^4.0.5",
+    "coz": "^6.0.20",
     "injectmock": "^2.0.0"
   },
   "engines": {
