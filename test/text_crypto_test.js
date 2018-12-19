@@ -5,18 +5,18 @@
 'use strict'
 
 const textCrypto = require('../lib/crypting/text_crypto.js')
-const co = require('co')
 const assert = require('assert')
 
 describe('text-crypto', () => {
-  before(() => co(function * () {
-  }))
 
-  after(() => co(function * () {
-  }))
+  it('Text crypto', async () => {
+    const algorithm = 'aes-256-cbc'
+    const encrypted = textCrypto.cipherText(algorithm, 'hogehogehogehoge', 'this is hoge')
 
-  it('Text crypto', () => co(function * () {
-  }))
+    console.log(
+      textCrypto.decipherText(algorithm, 'hogehogehogehoge', encrypted)
+    )
+  })
 })
 
 /* global describe, before, after, it */

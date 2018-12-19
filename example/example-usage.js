@@ -2,7 +2,7 @@
 
 const cipherjson = require('cipherjson')
 
-let cipher = cipherjson('your-password')
+const cipher = cipherjson('your-password')
 
 cipher.write('secret.json', {
   DATABASE_PASSWORD: 'asekr324',
