@@ -25,6 +25,7 @@
     "argx": "^3.0.2",
     "async": "^2.1.4",
     "objnest": "^5.0.4",
+    "qs": "^6.6.0",
     "writeout": "^2.1.0"
   },
   "devDependencies": {
