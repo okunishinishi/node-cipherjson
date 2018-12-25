@@ -11,11 +11,14 @@ describe('text-crypto', () => {
 
   it('Text crypto', async () => {
     const algorithm = 'aes-256-cbc'
-    const encrypted = textCrypto.cipherText(algorithm, 'hogehogehogehoge', 'this is hoge')
+    for (const iv of [true, false]) {
+      const encrypted = textCrypto.cipherText(algorithm, 'hogehogehogehoge', 'this is hoge', { iv })
 
-    console.log(
-      textCrypto.decipherText(algorithm, 'hogehogehogehoge', encrypted)
-    )
+      assert.equal(
+        textCrypto.decipherText(algorithm, 'hogehogehogehoge', encrypted, { iv }),
+        'this is hoge',
+      )
+    }
   })
 })
 
