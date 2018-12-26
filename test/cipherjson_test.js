@@ -9,13 +9,16 @@ const assert = require('assert')
 
 describe('cipherjson', () => {
   it('Write and read.', async () => {
-    let filename = `${__dirname}/../tmp/testing.secret.json`
-    let cipherjson = new Cipherjson('hoge')
+    const filename = `${__dirname}/../tmp/testing.secret.json`
+    const cipherjson = new Cipherjson('hogehogehogehoge')
     await cipherjson.write(filename, {
-      foo: 'bar'
+      foo: 'bar',
+      foo2: '1234asdflaskjdf;l1k3j'
     })
-    let data = await cipherjson.read(filename)
+    const cipherjson2 = new Cipherjson('hogehogehogehoge')
+    const data = await cipherjson2.read(filename)
     assert.equal(data.foo, 'bar')
+    assert.equal(data.foo2, '1234asdflaskjdf;l1k3j')
   })
 
   it('Write and read sync.', async () => {
