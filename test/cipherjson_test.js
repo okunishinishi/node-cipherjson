@@ -5,7 +5,9 @@
 'use strict'
 
 const Cipherjson = require('../lib/cipherjson.js')
-const assert = require('assert')
+const assert = require('assert').strict
+const path = require('path')
+const { writeFileAsync, mkdirpAsync } = require('asfs')
 
 describe('cipherjson', () => {
   it('Write and read.', async () => {
@@ -32,10 +34,29 @@ describe('cipherjson', () => {
   })
 
   it('Read not ciphered', async () => {
-    let filename = require.resolve('../doc/mocks/mock-data.json')
-    let cipherjson = new Cipherjson('hoge')
-    let data = await cipherjson.read(filename)
+    const filename = require.resolve('../doc/mocks/mock-data.json')
+    const cipherjson = new Cipherjson('hoge')
+    const data = await cipherjson.read(filename)
     assert.deepEqual(data, { foo: 'bar' })
+  })
+
+  it('hoge', async () => {
+    const filename = `${__dirname}/../tmp/hoge/testing-migration-01.json`
+    await mkdirpAsync(path.dirname(filename))
+    await writeFileAsync(filename, JSON.stringify({
+      foo: 'This is foo',
+    }))
+    const PASSWORD = 'pppp'
+    const cipherjson = new Cipherjson(PASSWORD)
+    await cipherjson.write(filename, {
+      bar: 'This is bar'
+    })
+    assert.deepEqual(
+      await cipherjson.read(filename),
+      {
+        bar: 'This is bar',
+      }
+    )
   })
 })
 
